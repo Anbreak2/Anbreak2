@@ -95,13 +95,6 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anbreak2&layout=compact&theme=matrix&hide_border=false" alt="Top Languages" width="48%" />
 </p>
 
-<br/>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Anbreak2&theme=matrix&hide_border=false" alt="GitHub Streak" width="97%" />
-</p>
-
-<br/>
 
 ---
 
@@ -110,6 +103,3 @@
   — <i>Edsger W. Dijkstra</i>
 </blockquote>
 
-<p align="center">
-  <sub>✨ Designed with Matrix Digital Rain SVG for <b>André García (@Anbreak2)</b> ✨</sub>
-</p>
