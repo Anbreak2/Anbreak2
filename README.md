@@ -137,6 +137,3 @@
   — <i>Edsger W. Dijkstra</i>
 </blockquote>
 
-<p align="center">
-  <sub>✨ Designed with Matrix Digital Rain SVG for <b>André García (@Anbreak2)</b> ✨</sub>
-</p>
