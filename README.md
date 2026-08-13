@@ -1,6 +1,10 @@
 # Hi there, I'm André García 👋 
 ### **Backend & DevOps Engineer** | Software Architecture & Enterprise Integrations
 
+<p align="center">
+  <img src="./header.svg" alt="Header Animado" width="100%" />
+</p>
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marco-andr%C3%A9-garc%C3%ADa-cervantes-157418333/)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:andre.garcia8219@gmail.com)
 
