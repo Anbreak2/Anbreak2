@@ -88,16 +88,6 @@
 
 ---
 
-## 📊 Matrix Telemetry & GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Anbreak2&show_icons=true&theme=matrix&count_private=true&hide_border=false" alt="André's GitHub Stats" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anbreak2&layout=compact&theme=matrix&hide_border=false" alt="Top Languages" width="48%" />
-</p>
-
-
----
-
 <blockquote align="center">
   <b>"Simplicity is prerequisite for reliability."</b><br/>
   — <i>Edsger W. Dijkstra</i>
