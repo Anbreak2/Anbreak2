@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="termBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e17"/>
+      <stop offset="100%" stop-color="#04060a"/>
+    </linearGradient>
+
+    <linearGradient id="termBorderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ff66"/>
+      <stop offset="50%" stop-color="#00f3ff"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+
+    <filter id="greenGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip Paths for Sequential Line Typing -->
+    <clipPath id="clipLine1">
+      <rect x="0" y="0" width="0" height="30">
+        <animate attributeName="width" from="0" to="400" dur="1.5s" begin="0.2s" fill="freeze"/>
+      </rect>
+    </clipPath>
+
+    <clipPath id="clipLine2">
+      <rect x="0" y="0" width="0" height="30">
+        <animate attributeName="width" from="0" to="500" dur="2s" begin="1.8s" fill="freeze"/>
+      </rect>
+    </clipPath>
+
+    <clipPath id="clipLine3">
+      <rect x="0" y="0" width="0" height="30">
+        <animate attributeName="width" from="0" to="580" dur="2.2s" begin="4s" fill="freeze"/>
+      </rect>
+    </clipPath>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&amp;display=swap');
+
+    .bg { fill: url(#termBg); rx: 14; }
+    .font-mono { font-family: 'Fira Code', monospace; }
+
+    /* Window Header Bar */
+    .win-bar {
+      fill: #111827;
+      stroke: rgba(255, 255, 255, 0.08);
+      stroke-width: 1;
+    }
+    
+    .btn-red { fill: #ef4444; }
+    .btn-yellow { fill: #f59e0b; }
+    .btn-green { fill: #10b981; }
+
+    .term-title {
+      font-size: 12px;
+      fill: #9ca3af;
+      font-weight: 500;
+    }
+
+    /* Terminal Text Colors */
+    .txt-prompt { fill: #00ff66; font-weight: 700; }
+    .txt-path { fill: #38bdf8; }
+    .txt-cmd { fill: #f1f5f9; font-weight: 600; }
+    .txt-output { fill: #94a3b8; }
+    .txt-highlight { fill: #f43f5e; font-weight: 600; }
+    .txt-success { fill: #10b981; font-weight: 600; }
+
+    /* Cursor */
+    .cursor-line {
+      fill: #00ff66;
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Neon border */
+    .term-border {
+      fill: none;
+      stroke: url(#termBorderGrad);
+      stroke-width: 1.5;
+      rx: 14;
+      opacity: 0.7;
+    }
+  </style>
+
+  <rect width="850" height="340" class="bg"/>
+
+  <!-- Window Control Bar -->
+  <path d="M 0 14 C 0 6 6 0 14 0 L 836 0 C 844 0 850 6 850 14 L 850 42 L 0 42 Z" class="win-bar"/>
+  <circle cx="25" cy="21" r="6" class="btn-red"/>
+  <circle cx="45" cy="21" r="6" class="btn-yellow"/>
+  <circle cx="65" cy="21" r="6" class="btn-green"/>
+  <text x="425" y="25" text-anchor="middle" class="font-mono term-title">bash — developer@github:~</text>
+
+  <!-- Terminal Content Area -->
+  
+  <!-- Line 1: whoami command -->
+  <g transform="translate(30, 85)">
+    <g clip-path="url(#clipLine1)">
+      <text x="0" y="0" class="font-mono" font-size="15">
+        <tspan class="txt-prompt">➜ </tspan>
+        <tspan class="txt-path">~ </tspan>
+        <tspan class="txt-cmd">whoami --verbose</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- Line 1 Output: System response -->
+  <g transform="translate(30, 118)">
+    <text x="0" y="0" class="font-mono txt-output" font-size="14" opacity="0">
+      ⚡ <tspan class="txt-success">Full-Stack Software Engineer</tspan> | Code Creator &amp; Problem Solver
+      <animate attributeName="opacity" to="1" dur="0.1s" begin="1.7s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Line 2: neofetch / tech specs command -->
+  <g transform="translate(30, 165)">
+    <g clip-path="url(#clipLine2)">
+      <text x="0" y="0" class="font-mono" font-size="15">
+        <tspan class="txt-prompt">➜ </tspan>
+        <tspan class="txt-path">~ </tspan>
+        <tspan class="txt-cmd">cat ./skills.json</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- Line 2 Output: JSON output -->
+  <g transform="translate(30, 198)">
+    <text x="0" y="0" class="font-mono txt-output" font-size="13" opacity="0">
+      { <tspan fill="#38bdf8">"languages"</tspan>: [<tspan fill="#f59e0b">"TypeScript"</tspan>, <tspan fill="#f59e0b">"Python"</tspan>, <tspan fill="#f59e0b">"JavaScript"</tspan>], <tspan fill="#38bdf8">"status"</tspan>: <tspan fill="#10b981">"🚀 Ready to Build"</tspan> }
+      <animate attributeName="opacity" to="1" dur="0.1s" begin="3.8s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Line 3: active job -->
+  <g transform="translate(30, 245)">
+    <g clip-path="url(#clipLine3)">
+      <text x="0" y="0" class="font-mono" font-size="15">
+        <tspan class="txt-prompt">➜ </tspan>
+        <tspan class="txt-path">~ </tspan>
+        <tspan class="txt-cmd">git commit -m "Building amazing open-source projects!"</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- Line 3 Output & Active Cursor -->
+  <g transform="translate(30, 280)">
+    <text x="0" y="0" class="font-mono txt-success" font-size="14" opacity="0">
+      [main 8a4f21b] Working on awesome repos! ✨
+      <animate attributeName="opacity" to="1" dur="0.1s" begin="6.2s" fill="freeze"/>
+    </text>
+  </g>
+
+  <!-- Active Blinking Prompt at bottom -->
+  <g transform="translate(30, 310)">
+    <text x="0" y="0" class="font-mono" font-size="15" opacity="0">
+      <tspan class="txt-prompt">➜ </tspan>
+      <tspan class="txt-path">~ </tspan>
+      <animate attributeName="opacity" to="1" dur="0.1s" begin="6.4s" fill="freeze"/>
+    </text>
+    <rect x="42" y="-14" width="8" height="17" class="cursor-line" opacity="0">
+      <animate attributeName="opacity" to="1" dur="0.1s" begin="6.4s" fill="freeze"/>
+    </rect>
+  </g>
+
+  <rect width="850" height="340" class="term-border"/>
+</svg>

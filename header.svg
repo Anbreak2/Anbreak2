@@ -1,0 +1,316 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 340" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080914"/>
+      <stop offset="50%" stop-color="#0f1328"/>
+      <stop offset="100%" stop-color="#05060d"/>
+    </linearGradient>
+
+    <!-- Neon Gradients -->
+    <linearGradient id="neonCyanPink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f3ff"/>
+      <stop offset="50%" stop-color="#b000ff"/>
+      <stop offset="100%" stop-color="#ff007f"/>
+    </linearGradient>
+
+    <linearGradient id="neonPurpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7928ca"/>
+      <stop offset="100%" stop-color="#00dfd8"/>
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(20, 26, 50, 0.75)"/>
+      <stop offset="100%" stop-color="rgba(10, 14, 30, 0.6)"/>
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="glowPink" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip Path for Typewriter Animation -->
+    <clipPath id="typeClip">
+      <rect x="0" y="0" width="0" height="60">
+        <animate attributeName="width" from="0" to="520" dur="2.8s" begin="0.5s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      </rect>
+    </clipPath>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&amp;family=Inter:wght@400;600;800&amp;display=swap');
+
+    .bg { fill: url(#bgGrad); }
+    
+    /* Cyber Grid lines animation */
+    .grid-line {
+      stroke: rgba(0, 243, 255, 0.05);
+      stroke-width: 1;
+    }
+
+    /* Wave animation */
+    .wave1 {
+      fill: none;
+      stroke: url(#neonCyanPink);
+      stroke-width: 2;
+      opacity: 0.6;
+      animation: waveMove1 8s ease-in-out infinite alternate;
+    }
+    .wave2 {
+      fill: none;
+      stroke: #00f3ff;
+      stroke-width: 1.5;
+      opacity: 0.3;
+      animation: waveMove2 11s ease-in-out infinite alternate;
+    }
+
+    @keyframes waveMove1 {
+      0% { d: path("M 0 260 Q 200 220 425 260 T 850 260"); }
+      50% { d: path("M 0 260 Q 200 300 425 240 T 850 280"); }
+      100% { d: path("M 0 260 Q 220 230 425 270 T 850 240"); }
+    }
+    @keyframes waveMove2 {
+      0% { d: path("M 0 280 Q 220 310 425 270 T 850 290"); }
+      100% { d: path("M 0 270 Q 180 230 425 290 T 850 250"); }
+    }
+
+    /* Outer glowing border */
+    .neon-border {
+      fill: none;
+      stroke: url(#neonCyanPink);
+      stroke-width: 1.5;
+      rx: 16;
+      opacity: 0.85;
+      animation: borderPulse 4s ease-in-out infinite alternate;
+    }
+    @keyframes borderPulse {
+      0% { opacity: 0.5; filter: drop-shadow(0 0 2px rgba(0,243,255,0.3)); }
+      100% { opacity: 0.95; filter: drop-shadow(0 0 8px rgba(255,0,127,0.6)); }
+    }
+
+    /* Card background */
+    .glass-card {
+      fill: url(#cardGrad);
+      stroke: rgba(0, 243, 255, 0.2);
+      stroke-width: 1;
+      rx: 12;
+    }
+
+    /* Typography */
+    .font-mono { font-family: 'Fira Code', monospace; }
+    .font-sans { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+    .status-text {
+      font-size: 12px;
+      font-weight: 600;
+      fill: #00f3ff;
+      letter-spacing: 1.5px;
+    }
+
+    .title-main {
+      font-size: 30px;
+      font-weight: 800;
+      fill: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    .title-gradient {
+      fill: url(#neonCyanPink);
+    }
+
+    .subtitle {
+      font-size: 14px;
+      fill: #94a3b8;
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 1.8s;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Cursor animation */
+    .cursor {
+      fill: #ff007f;
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Floating Particles */
+    .particle {
+      animation: float 6s ease-in-out infinite;
+    }
+    .p1 { fill: #00f3ff; animation-delay: 0s; }
+    .p2 { fill: #ff007f; animation-delay: 2s; }
+    .p3 { fill: #b000ff; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); opacity: 0.4; }
+      50% { transform: translateY(-12px) scale(1.3); opacity: 0.9; }
+    }
+
+    /* Tech Stack Pills */
+    .pill-bg {
+      fill: rgba(15, 23, 42, 0.8);
+      stroke: rgba(255, 255, 255, 0.12);
+      stroke-width: 1;
+      rx: 20;
+      transition: all 0.3s ease;
+    }
+    .pill-text {
+      font-size: 11px;
+      font-weight: 600;
+      fill: #e2e8f0;
+      letter-spacing: 0.5px;
+    }
+    .pill-icon { fill: #00f3ff; }
+
+    /* Animated Hexagon / Graphic on Right */
+    .hex-outer {
+      fill: none;
+      stroke: url(#neonCyanPink);
+      stroke-width: 2;
+      animation: rotateHex 20s linear infinite;
+      transform-origin: 700px 170px;
+    }
+    .hex-inner {
+      fill: none;
+      stroke: #00f3ff;
+      stroke-width: 1;
+      stroke-dasharray: 6 6;
+      animation: rotateHex 12s linear infinite reverse;
+      transform-origin: 700px 170px;
+    }
+    @keyframes rotateHex {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Pulse dot */
+    .pulse-dot {
+      fill: #00ff66;
+      animation: pulseGlow 1.5s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 2px #00ff66); opacity: 0.7; }
+      100% { filter: drop-shadow(0 0 8px #00ff66); opacity: 1; }
+    }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="850" height="340" rx="16" class="bg"/>
+
+  <!-- Subtle Cyber Grid -->
+  <g class="grid-lines">
+    <line x1="50" y1="0" x2="50" y2="340" class="grid-line"/>
+    <line x1="150" y1="0" x2="150" y2="340" class="grid-line"/>
+    <line x1="250" y1="0" x2="250" y2="340" class="grid-line"/>
+    <line x1="350" y1="0" x2="350" y2="340" class="grid-line"/>
+    <line x1="450" y1="0" x2="450" y2="340" class="grid-line"/>
+    <line x1="550" y1="0" x2="550" y2="340" class="grid-line"/>
+    <line x1="650" y1="0" x2="650" y2="340" class="grid-line"/>
+    <line x1="750" y1="0" x2="750" y2="340" class="grid-line"/>
+    
+    <line x1="0" y1="60" x2="850" y2="60" class="grid-line"/>
+    <line x1="0" y1="120" x2="850" y2="120" class="grid-line"/>
+    <line x1="0" y1="180" x2="850" y2="180" class="grid-line"/>
+    <line x1="0" y1="240" x2="850" y2="240" class="grid-line"/>
+    <line x1="0" y1="300" x2="850" y2="300" class="grid-line"/>
+  </g>
+
+  <!-- Animated Ambient Waves -->
+  <path class="wave2" d="M 0 280 Q 220 310 425 270 T 850 290"/>
+  <path class="wave1" d="M 0 260 Q 200 220 425 260 T 850 260"/>
+
+  <!-- Glassmorphic Container Card -->
+  <rect x="35" y="35" width="780" height="270" class="glass-card"/>
+
+  <!-- Status Bar Header -->
+  <g transform="translate(65, 72)">
+    <circle cx="0" cy="-4" r="4" class="pulse-dot"/>
+    <text x="14" y="0" class="font-mono status-text">SYSTEM ONLINE <tspan fill="#64748b">//</tspan> PROFILE HEADER</text>
+  </g>
+
+  <!-- Animated Typewriter Header Text -->
+  <g transform="translate(65, 125)">
+    <!-- Clipped Text for Typewriter effect -->
+    <g clip-path="url(#typeClip)">
+      <text x="0" y="0" class="font-sans title-main">
+        Hi there, I'm <tspan class="title-gradient">Developer</tspan> 👋
+      </text>
+    </g>
+    <!-- Blinking Cursor -->
+    <rect x="425" y="-26" width="3" height="32" class="cursor" rx="1.5">
+      <animate attributeName="x" from="0" to="425" dur="2.8s" begin="0.5s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+    </rect>
+  </g>
+
+  <!-- Subtitle Description -->
+  <text x="65" y="168" class="font-sans subtitle">
+    Building intelligent web applications, futuristic UI/UX &amp; open source projects.
+  </text>
+
+  <!-- Tech Stack Badges / Pills -->
+  <g transform="translate(65, 215)">
+    <!-- Pill 1: Full-Stack -->
+    <g transform="translate(0, 0)">
+      <rect width="145" height="34" class="pill-bg"/>
+      <text x="16" y="21" class="font-mono pill-text"><tspan class="pill-icon">⚡</tspan> Full-Stack</text>
+    </g>
+
+    <!-- Pill 2: React & Node -->
+    <g transform="translate(155, 0)">
+      <rect width="155" height="34" class="pill-bg"/>
+      <text x="16" y="21" class="font-mono pill-text"><tspan fill="#00ff66">🚀</tspan> React &amp; Node</text>
+    </g>
+
+    <!-- Pill 3: AI & Tech -->
+    <g transform="translate(320, 0)">
+      <rect width="140" height="34" class="pill-bg"/>
+      <text x="16" y="21" class="font-mono pill-text"><tspan fill="#b000ff">🤖</tspan> AI &amp; Tech</text>
+    </g>
+
+    <!-- Pill 4: Open Source -->
+    <g transform="translate(470, 0)">
+      <rect width="150" height="34" class="pill-bg"/>
+      <text x="16" y="21" class="font-mono pill-text"><tspan fill="#ff007f">💖</tspan> Open Source</text>
+    </g>
+  </g>
+
+  <!-- Futuristic Cyber Widget (Right Side Graphic) -->
+  <g transform="translate(700, 170)">
+    <!-- Rotating Outer Hexagon -->
+    <polygon points="0,-65 56,-32 56,32 0,65 -56,32 -56,-32" class="hex-outer"/>
+    <!-- Rotating Inner Dashed Hexagon -->
+    <polygon points="0,-45 39,-22 39,22 0,45 -39,22 -39,-22" class="hex-inner"/>
+    <!-- Core Glow & Code Symbol -->
+    <circle cx="0" cy="0" r="24" fill="rgba(0, 243, 255, 0.15)" filter="url(#glowCyan)"/>
+    <text x="0" y="6" text-anchor="middle" class="font-mono" font-size="18" font-weight="700" fill="#00f3ff">&lt;/&gt;</text>
+  </g>
+
+  <!-- Floating Particles Decorating the Scene -->
+  <circle cx="120" cy="50" r="3" class="particle p1" filter="url(#glowCyan)"/>
+  <circle cx="480" cy="70" r="2" class="particle p2" filter="url(#glowPink)"/>
+  <circle cx="620" cy="110" r="3.5" class="particle p3"/>
+  <circle cx="280" cy="290" r="2.5" class="particle p1"/>
+  <circle cx="780" cy="270" r="3" class="particle p2" filter="url(#glowPink)"/>
+
+  <!-- Outer Neon Border Frame -->
+  <rect x="2" y="2" width="846" height="336" class="neon-border"/>
+</svg>

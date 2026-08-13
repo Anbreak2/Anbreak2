@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vista Previa - SVGs Animados para GitHub README</title>
+  <style>
+    :root {
+      --bg-dark: #0d1117;
+      --bg-card: #161b22;
+      --border-color: #30363d;
+      --text-main: #c9d1d9;
+      --accent-cyan: #00f3ff;
+      --accent-pink: #ff007f;
+      --accent-green: #00ff66;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: #8b949e;
+      font-size: 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 920px;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
+
+    .tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(0, 243, 255, 0.25);
+      color: #fff;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(0,243,255,0.1), rgba(255,0,127,0.1));
+    }
+
+    /* Preview Box */
+    .preview-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .theme-toggle-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .theme-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .theme-btn {
+      background: #21262d;
+      border: 1px solid var(--border-color);
+      color: #c9d1d9;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .svg-wrapper {
+      width: 100%;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .svg-wrapper img {
+      width: 100%;
+      max-width: 850px;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* Code Snippet Area */
+    .code-section {
+      background: #010409;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      position: relative;
+    }
+
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .code-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #58a6ff;
+    }
+
+    .copy-btn {
+      background: #238636;
+      color: #ffffff;
+      border: none;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: #2ea043;
+    }
+
+    pre {
+      font-family: "Fira Code", monospace;
+      font-size: 0.9rem;
+      color: #e6edf3;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Tips & Instructions */
+    .instructions {
+      margin-top: 2rem;
+      background: rgba(56, 189, 248, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .instructions h3 {
+      color: #38bdf8;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .instructions ul {
+      margin-left: 1.25rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(0, 243, 255, 0.15);
+      color: var(--accent-cyan);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>✨ Tu SVG Animado para GitHub README</h1>
+    <p class="subtitle">Selecciona tu diseño preferido y copia el código directo a tu repositorio</p>
+  </header>
+
+  <div class="container">
+    <!-- Tab Controls -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="selectTab('header.svg', this)">
+        <span>⚡ Cyberpunk Neon</span>
+        <span class="badge">Recomendado</span>
+      </button>
+      <button class="tab-btn" onclick="selectTab('header-terminal.svg', this)">
+        <span>💻 Terminal Hacker</span>
+      </button>
+    </div>
+
+    <!-- Preview Card -->
+    <div class="preview-card">
+      <div class="theme-toggle-bar">
+        <span class="theme-title" id="current-title">Vista Previa - Cyberpunk Neon</span>
+        <button class="theme-btn" onclick="toggleTheme()">🌓 Cambiar Fondo (Fondo Claro/Oscuro)</button>
+      </div>
+
+      <div class="svg-wrapper" id="svg-container">
+        <img id="svg-preview" src="header.svg" alt="Animated Header Preview">
+      </div>
+    </div>
+
+    <!-- Code Snippet Box -->
+    <div class="code-section">
+      <div class="code-header">
+        <span class="code-title">📄 Código Markdown para tu README.md:</span>
+        <button class="copy-btn" onclick="copyCode()">📋 Copiar Código</button>
+      </div>
+      <pre><code id="code-snippet">&lt;p align="center"&gt;
+  &lt;img src="./header.svg" alt="Header Animado" width="100%" /&gt;
+&lt;/p&gt;</code></pre>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+      <h3>🚀 ¿Cómo usarlo en GitHub?</h3>
+      <ul>
+        <li>Guarda el archivo <code>header.svg</code> en la raíz de tu repositorio de perfil en GitHub (el repo llamado <code>tu-usuario/tu-usuario</code>).</li>
+        <li>Agrega la línea de código Markdown de arriba en tu archivo <code>README.md</code>.</li>
+        <li>¡Realiza el <code>git commit</code> y <code>git push</code> y tu perfil brillará con animaciones!</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    let currentSvg = 'header.svg';
+    let isDarkBg = true;
+
+    function selectTab(svgFile, btn) {
+      currentSvg = svgFile;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const img = document.getElementById('svg-preview');
+      img.src = svgFile;
+
+      const title = document.getElementById('current-title');
+      title.innerText = svgFile === 'header.svg' 
+        ? 'Vista Previa - Cyberpunk Neon' 
+        : 'Vista Previa - Terminal Hacker';
+
+      updateSnippet();
+    }
+
+    function updateSnippet() {
+      const code = `<p align="center">\n  <img src="./${currentSvg}" alt="Header Animado" width="100%" />\n</p>`;
+      document.getElementById('code-snippet').innerText = code;
+    }
+
+    function toggleTheme() {
+      const wrapper = document.getElementById('svg-container');
+      isDarkBg = !isDarkBg;
+      wrapper.style.backgroundColor = isDarkBg ? 'transparent' : '#ffffff';
+      wrapper.style.padding = isDarkBg ? '0' : '1rem';
+    }
+
+    function copyCode() {
+      const snippet = document.getElementById('code-snippet').innerText;
+      navigator.clipboard.writeText(snippet);
+      const btn = document.querySelector('.copy-btn');
+      btn.innerText = '✓ ¡Copiado!';
+      setTimeout(() => btn.innerText = '📋 Copiar Código', 2000);
+    }
+  </script>
+
+</body>
+</html>
