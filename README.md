@@ -70,6 +70,50 @@
 
 ---
 
+## ⚙️ Enterprise Toolchain & Agile Ecosystem
+
+<p align="center">
+  <img src="https://img.shields.io/badge/GitLab_CI/CD-000000?style=for-the-badge&logo=gitlab&logoColor=00ff41" alt="GitLab CI/CD"/>
+  <img src="https://img.shields.io/badge/Jira_Software-000000?style=for-the-badge&logo=jira&logoColor=00ff41" alt="Jira"/>
+  <img src="https://img.shields.io/badge/Confluence-000000?style=for-the-badge&logo=confluence&logoColor=00ff41" alt="Confluence"/>
+  <img src="https://img.shields.io/badge/Bitbucket-000000?style=for-the-badge&logo=bitbucket&logoColor=00ff41" alt="Bitbucket"/>
+  <img src="https://img.shields.io/badge/SonarQube-000000?style=for-the-badge&logo=sonarqube&logoColor=00ff41" alt="SonarQube"/>
+  <img src="https://img.shields.io/badge/Linux_Enterprise-000000?style=for-the-badge&logo=linux&logoColor=00ff41" alt="Linux"/>
+</p>
+
+<br/>
+
+<table align="center" width="100%">
+  <tr>
+    <td width="33%" align="center">
+      <h3>📈 5+ Years</h3>
+      <p><b>Enterprise Backend &amp; Architecture</b></p>
+    </td>
+    <td width="33%" align="center">
+      <h3>🔄 Async ETL</h3>
+      <p><b>Distributed Data Pipelines</b></p>
+    </td>
+    <td width="33%" align="center">
+      <h3>🦊 GitLab &amp; Jira</h3>
+      <p><b>Agile CI/CD &amp; Workflows</b></p>
+    </td>
+  </tr>
+</table>
+
+<br/>
+
+```gdb
+[ ENTERPRISE DEVOPS PIPELINE ]
+┌─────────────────┐     ┌──────────────────┐     ┌────────────────────┐     ┌─────────────────────┐
+│  Jira Sprint    │ ──> │  GitLab CI/CD    │ ──> │ Docker & Secrets   │ ──> │ RabbitMQ / ETL      │
+│ Backlog & Specs │     │ Build, Test, Lint│     │ Container Registry │     │ Production Deploy   │
+└─────────────────┘     └──────────────────┘     └────────────────────┘     └─────────────────────┘
+```
+
+<br/>
+
+---
+
 ## 📌 Featured Architectures & Projects
 
 ```gdb
@@ -93,3 +137,6 @@
   — <i>Edsger W. Dijkstra</i>
 </blockquote>
 
+<p align="center">
+  <sub>✨ Designed with Matrix Digital Rain SVG for <b>André García (@Anbreak2)</b> ✨</sub>
+</p>
