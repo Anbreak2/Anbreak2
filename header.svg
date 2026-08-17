@@ -36,37 +36,24 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-
-    <!-- INFINITE MATRIX TYPEWRITER CLIP PATH FOR "Anbreak" -->
-    <clipPath id="clipAnbreakLoop">
-      <rect x="0" y="0" width="0" height="100">
-        <animate 
-          attributeName="width" 
-          values="0; 340; 340; 0; 0" 
-          keyTimes="0; 0.45; 0.85; 0.95; 1" 
-          dur="4.5s" 
-          repeatCount="indefinite"/>
-      </rect>
-    </clipPath>
   </defs>
 
   <style><![CDATA[
     .bg { fill: url(#matrixBgGrad); }
-    .font-matrix { font-family: 'Consolas', 'Fira Code', 'Courier New', 'Courier', monospace; }
+    .font-matrix { font-family: Consolas, 'Fira Code', 'Courier New', monospace; }
 
-    /* Authentic Matrix Digital Rain Column Animations */
+    /* Matrix Digital Rain Column Animations (Pure CSS) */
     .matrix-code {
-      font-family: 'Consolas', 'Courier New', monospace;
+      font-family: Consolas, 'Courier New', monospace;
       font-size: 12px;
       font-weight: 700;
       fill: #00FF41;
       opacity: 0.22;
       writing-mode: tb;
       letter-spacing: 5px;
-      text-shadow: 0 0 6px #00FF41;
     }
 
-    .rain-head { fill: #CCFFD8; font-weight: 800; text-shadow: 0 0 10px #00FF41; }
+    .rain-head { fill: #CCFFD8; font-weight: 800; }
 
     .rain-col-1 { animation: matrixFall 6s linear infinite; animation-delay: 0s; }
     .rain-col-2 { animation: matrixFall 8s linear infinite; animation-delay: 1.2s; fill: #33FF66; opacity: 0.3; }
@@ -125,7 +112,6 @@
       font-weight: 700;
       fill: #00FF41;
       letter-spacing: 1.5px;
-      text-shadow: 0 0 5px #00FF41;
     }
 
     /* Left Card: Big Matrix Generated "Anbreak" */
@@ -134,7 +120,38 @@
       font-weight: 800;
       fill: url(#matrixGreenGrad);
       letter-spacing: 5px;
-      filter: drop-shadow(0 0 8px #00FF41) drop-shadow(0 0 16px rgba(0, 255, 65, 0.5));
+      filter: drop-shadow(0 0 8px #00FF41);
+    }
+
+    /* PURE CSS INFINITE TYPEWRITER REGENERATION LOOP */
+    .typewriter-clip-css {
+      clip-path: inset(0 100% 0 0);
+      animation: cssTypeLoop 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes cssTypeLoop {
+      0% { clip-path: inset(0 100% 0 0); }
+      45% { clip-path: inset(0 0% 0 0); }
+      85% { clip-path: inset(0 0% 0 0); opacity: 1; }
+      92% { clip-path: inset(0 0% 0 0); opacity: 0; }
+      98% { clip-path: inset(0 100% 0 0); opacity: 0; }
+      100% { clip-path: inset(0 100% 0 0); opacity: 1; }
+    }
+
+    /* PURE CSS CURSOR MOTION LOOP */
+    .cursor-matrix {
+      fill: #00FF41;
+      filter: url(#matrixGlowIntense);
+      animation: cssCursorLoop 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes cssCursorLoop {
+      0% { transform: translateX(0px); opacity: 1; }
+      45% { transform: translateX(293px); opacity: 1; }
+      85% { transform: translateX(293px); opacity: 1; }
+      92% { transform: translateX(293px); opacity: 0; }
+      98% { transform: translateX(0px); opacity: 0; }
+      100% { transform: translateX(0px); opacity: 1; }
     }
 
     /* Continuous Matrix Character Glitch & Regenerating Cipher */
@@ -150,9 +167,19 @@
     .c-7 { animation-delay: 0.95s; }
 
     @keyframes matrixRegenFlicker {
-      0% { opacity: 1; fill: #00FF41; filter: drop-shadow(0 0 4px #00FF41); }
-      50% { opacity: 0.75; fill: #CCFFD8; filter: drop-shadow(0 0 12px #00FF41); }
-      100% { opacity: 1; fill: #00FF41; filter: drop-shadow(0 0 6px #00FF41); }
+      0% { opacity: 1; fill: #00FF41; }
+      50% { opacity: 0.75; fill: #CCFFD8; }
+      100% { opacity: 1; fill: #00FF41; }
+    }
+
+    /* Continuous Scanbeam Motion */
+    .scanbeam-dash {
+      stroke-dasharray: 6 4;
+      animation: dashMove 1s linear infinite;
+    }
+
+    @keyframes dashMove {
+      to { stroke-dashoffset: -20; }
     }
 
     /* Right Card Matrix Terminal Rows */
@@ -161,7 +188,6 @@
       font-weight: 700;
       fill: #00FF41;
       letter-spacing: 0.5px;
-      text-shadow: 0 0 4px rgba(0, 255, 65, 0.6);
     }
 
     .term-val {
@@ -174,18 +200,6 @@
       font-size: 12px;
       font-weight: 700;
       fill: #00FF41;
-      text-shadow: 0 0 6px #00FF41;
-    }
-
-    /* Blinking Block Cursor */
-    .cursor-matrix {
-      fill: #00FF41;
-      filter: url(#matrixGlowIntense);
-      animation: blinkMatrix 0.6s infinite;
-    }
-    @keyframes blinkMatrix {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.1; }
     }
 
     /* Pulsing Green Indicator Dot */
@@ -193,9 +207,10 @@
       fill: #00FF41;
       animation: pulseGreen 1.2s infinite alternate;
     }
+
     @keyframes pulseGreen {
-      0% { filter: drop-shadow(0 0 2px #00FF41); opacity: 0.6; fill: #00FF41; }
-      100% { filter: drop-shadow(0 0 10px #00FF41); opacity: 1; fill: #CCFFD8; }
+      0% { opacity: 0.6; fill: #00FF41; }
+      100% { opacity: 1; fill: #CCFFD8; }
     }
   ]]></style>
 
@@ -228,28 +243,19 @@
 
     <!-- INFINITE MATRIX REGENERATING TEXT "Anbreak" -->
     <g transform="translate(20, 100)">
-      <!-- Matrix Clipped Digital Typing & Infinite Loop -->
-      <g clip-path="url(#clipAnbreakLoop)">
+      <!-- Pure CSS Typewriter Clip Loop -->
+      <g class="typewriter-clip-css">
         <text x="5" y="55" class="font-matrix anbreak-title-large">
           <tspan class="char-matrix c-1">A</tspan><tspan class="char-matrix c-2">n</tspan><tspan class="char-matrix c-3">b</tspan><tspan class="char-matrix c-4">r</tspan><tspan class="char-matrix c-5">e</tspan><tspan class="char-matrix c-6">a</tspan><tspan class="char-matrix c-7">k</tspan>
         </text>
       </g>
 
-      <!-- Matrix Infinite Cursor Loop -->
-      <rect y="10" width="9" height="48" class="cursor-matrix" rx="2">
-        <animate 
-          attributeName="x" 
-          values="5; 298; 298; 5; 5" 
-          keyTimes="0; 0.45; 0.85; 0.95; 1" 
-          dur="4.5s" 
-          repeatCount="indefinite"/>
-      </rect>
+      <!-- Matrix Infinite Cursor Loop (Pure CSS) -->
+      <rect x="5" y="10" width="9" height="48" class="cursor-matrix" rx="2"/>
     </g>
 
-    <!-- Matrix Scanline Beam Accent with Continuous Loop -->
-    <line x1="20" y1="175" x2="360" y2="175" stroke="#00FF41" stroke-width="1" stroke-dasharray="6 4" opacity="0.6">
-      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="1s" repeatCount="indefinite"/>
-    </line>
+    <!-- Matrix Scanline Beam Accent -->
+    <line x1="20" y1="175" x2="360" y2="175" stroke="#00FF41" stroke-width="1" class="scanbeam-dash" opacity="0.6"/>
 
     <!-- Subtitle Stack Pill -->
     <g transform="translate(20, 215)">
